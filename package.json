@@ -1,0 +1,24 @@
+{
+  "name": "rsschool-codejam",
+  "version": "1.0.0",
+  "description": "implementation of functions sumOfOther, make, recursion",
+  "main": "test.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icebergnevercries/rsschool-codejam.git"
+  },
+  "author": "Denis Losik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icebergnevercries/rsschool-codejam/issues"
+  },
+  "homepage": "https://github.com/icebergnevercries/rsschool-codejam#readme",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "mocha": "^5.2.0"
+  }
+}
