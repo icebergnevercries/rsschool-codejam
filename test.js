@@ -1,6 +1,7 @@
 const assert = require('assert');
 const sumOfOther = require('./src/sumOfOther.js');
 const make = require('./src/make.js');
+const recursion = require('./src/recursion.js');
 
 describe('sumOfOther', () => {
     it('1', () => {
@@ -56,5 +57,26 @@ describe('make', () => {
     it('6', () => {
         const solutions = make(4, 3, 2, 1)(mul);
         assert.deepEqual(solutions, 24);
+    });
+});
+
+let tree = {"value":100,"left":{"value":90,"left":{"value":70},"right":{"value":99}},"right":{"value":120,"left":{"value":110},"right":{"value":130}}};
+let tree1 = {"value":100,"left":{"value":90,"left":{"value":70},"right":{"value":99},"center":{"value":100,"right":{"value":777}}},"right":{"value":120,"left":{"value":110},"right":{"value":130}},"center":{"value":80,"left":{"value":60},"right":{"value":55}}};
+let tree2 = {"value":100,"left":{"value":90,"left":{"value":70},"right":{"value":99,"right":{"value":120,"left":{"value":110},"right":{"value":130}}},"center":{"value":100,"right":{"value":777} }},"right":{"value":120,"left":{"value":110},"right":{"value":130}},"center":{"value":80,"left":{"value":60},"right":{"value":55}}};
+
+describe('recursion', () => {
+    it('1', () => {
+        const solutions = recursion(tree);
+        assert.deepEqual(solutions, [[100], [90, 120], [70, 99, 110, 130]]);
+    });
+
+    it('2', () => {
+        const solutions = recursion(tree1);
+        assert.deepEqual(solutions, [[100], [90, 120, 80], [70, 99, 100, 110, 130, 60, 55], [777]]);
+    });
+
+    it('3', () => {
+        const solutions = recursion(tree2);
+        assert.deepEqual(solutions, [[100], [90, 120, 80], [70, 99, 100, 110, 130, 60, 55], [120,777], [110, 130]]);
     });
 });
